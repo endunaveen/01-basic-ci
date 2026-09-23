@@ -12,6 +12,8 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'hostname'
+                sh 'mkdir -p build'
+                sh 'echo "My application artifact - Build ${BUILD_NUMBER}" > build/app.txt'
                 sh './app.sh'
             }
         }
