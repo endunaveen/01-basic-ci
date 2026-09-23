@@ -2,6 +2,11 @@ pipeline {
    agent {
     label 'linux'
 }
+
+   environment {
+        APP_NAME = 'basic-ci'
+        VERSION = '1.0'
+    }
     stages {
 
         stage('Build') {
