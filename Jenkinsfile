@@ -41,3 +41,15 @@ pipeline {
 
     }
 }
+
+
+post {
+    success {
+        archiveArtifacts artifacts: 'build/app.txt'
+        echo "Artifact archived successfully"
+    }
+
+    failure {
+        echo "Pipeline failed"
+    }
+}
