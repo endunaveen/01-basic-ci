@@ -35,19 +35,19 @@ pipeline {
             sh '''
                 git ls-remote https://${GITHUB_USER}:${GITHUB_TOKEN}@github.com/endunaveen/01-basic-ci.git HEAD
             '''
-        }
-    }
-}
-      post {
-    success {
-        archiveArtifacts artifacts: 'build/app.txt'
-        echo "Artifact archived successfully"
-    }
+               }
+             }
+         }
+       post {
+        success {
+           archiveArtifacts artifacts: 'build/app.txt'
+            echo "Artifact archived successfully"
+          }
 
-    failure {
+          failure {
         echo "Pipeline failed"
-    }
-}
+           }
+      }
    
 
     }
