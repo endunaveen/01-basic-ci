@@ -2,15 +2,18 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Credential Test') {
             steps {
-                sh './app.sh'
-            }
-        }
-
-        stage('Test') {
-            steps {
-                sh './test.sh'
+                withCredentials([
+                    usernamePassword(
+                        credentialsId: 'github-lab-credentials',
+                        usernameVariable: 'GIT_USER',
+                        passwordVariable: 'GIT_PASSWORD'
+                    )
+                ]) {
+                    sh 'echo "GitHub username: $GIT_USER"'
+                    sh 'echo "Password is securely available to Jenkins"'
+                }
             }
         }
     }
