@@ -24,7 +24,7 @@ pipeline {
             }
         }
        stage('GitHub Authentication Test') {
-    steps {
+         steps {
         withCredentials([
             usernamePassword(
                 credentialsId: 'github-pat',
@@ -38,12 +38,7 @@ pipeline {
         }
     }
 }
-
-    }
-}
-
-
-post {
+      post {
     success {
         archiveArtifacts artifacts: 'build/app.txt'
         echo "Artifact archived successfully"
@@ -52,4 +47,11 @@ post {
     failure {
         echo "Pipeline failed"
     }
+}
+   
+
+    }
+}
+
+
 }
