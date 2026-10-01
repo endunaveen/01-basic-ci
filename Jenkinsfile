@@ -22,7 +22,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Building ${APP_NAME}"
-                ./app.sh
+                sh './app.sh'
             }
         }
 
