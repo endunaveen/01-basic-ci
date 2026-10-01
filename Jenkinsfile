@@ -38,7 +38,7 @@ pipeline {
 
         success {
             archiveArtifacts artifacts: 'build/app.txt'
-            echo "Artifact archived successfull"
+            echo "Artifact archived successfully"
         }
 
         failure {
